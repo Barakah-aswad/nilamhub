@@ -49,5 +49,5 @@ Route::group(['middleware' => 'pengunjung'], function(){
 
 
 Route::group(['middleware' => 'admin'], function(){
-	Route::get('/admin', 'AdminController@index');
+	Route::get('/manager', 'AdminController@index');
 });

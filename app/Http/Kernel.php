@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'visitors' => \App\Http\Middleware\VisitorMiddleware::class,
         'pengunjung' => \App\Http\Middleware\PengunjungMiddleware::class,
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
+        'petani' => \App\Http\Middleware\PetaniMiddleware::class,
     ];
 }

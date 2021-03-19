@@ -29,7 +29,7 @@ class LoginController extends Controller
 
 				if($slug == 'admin')
                 {
-					return redirect('/admin');
+					return redirect('/manager');
 
 				}elseif($slug == 'pengunjung')
                 {
