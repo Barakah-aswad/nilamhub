@@ -17,29 +17,37 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/register','RegisterController@index');
-Route::get('/register','RegisterController@create');
-Route::post('/register', 'RegisterController@store');
+//Visitor
+Route::group(['middleware' => 'visitors'],function(){
 
-Route::get('/login', 'LoginController@index');
-Route::post('/login', 'LoginController@postLogin');
+	Route::get('/register','RegisterController@create');
+	Route::post('/register', 'RegisterController@store');
 
-Route::get('/activate/{email}/{code}', 'AktifasiController@aktifasi');
+	Route::get('/login', 'LoginController@index');
+	Route::post('/login', 'LoginController@postLogin');
+
+	Route::get('/lupa-password','ForgetPasswordController@index');
+	Route::post('/lupa-password','ForgetPasswordController@store');
+
+	Route::get('/reset/{email}/{reset_code}','ForgetPasswordController@resetPassword');
+	Route::post('/reset/{email}/{reset_code}','ForgetPasswordController@postResetPassword');
+	Route::get('/activate/{email}/{code}', 'AktifasiController@aktifasi');
+	Route::get('/reset/{email}/{code}', 'AktifasiController@aktifasi');
+});
+
+	
+
 Route::post('/logout','LoginController@logout');
 
+//Pengunjung
+Route::group(['middleware' => 'pengunjung'], function(){
+	Route::get('/visitor','PengunjungController@index');
+});
 
-
-Route::get('/lupa-password','ForgetPasswordController@index');
-Route::post('/lupa-password','ForgetPasswordController@store');
-
-Route::get('/reset/{email}/{reset_code}','ForgetPasswordController@resetPassword');
-Route::post('/reset/{email}/{reset_code}','ForgetPasswordController@postResetPassword');
-
-
+//Admin
 
 
 
-
-Route::get('/visitor','PengunjungController@index');
-
-Route::get('/admin', 'AdminController@index');
+Route::group(['middleware' => 'admin'], function(){
+	Route::get('/admin', 'AdminController@index');
+});

@@ -42,22 +42,18 @@ class ForgetPasswordController extends Controller
     		abort(404);
     	}
 
-    	$rmd = Reminder::all();
-
-    	dd($rmd);
-
-    	// if(Reminder::exists($user)) {
+    	if(Reminder::exists($user)) {
     		
-    	// 	if(Reminder::exists($user, $reset_code)) {
-    	// 		return view('authentication.forgot_password.reset_password');
+    		if(Reminder::exists($user, $reset_code)) {
+    			return view('authentication.forgot_password.reset_password');
 
-    	// 	}else{
+    		}else{
 
-    	// 		return redirect('/');
-    	// 	}
-    	// }else{
-    	// 	return redirect('/');
-    	// }
+    			return redirect('/');
+    		}
+    	}else{
+    		return redirect('/');
+    	}
     }
 
     public function postResetPassword(Request $request , $email, $reset_code ){

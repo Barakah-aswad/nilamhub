@@ -27,9 +27,12 @@ class LoginController extends Controller
 
 				$slug = Sentinel::getUser()->roles()->first()->slug;
 
-				if($slug == 'admin'){
+				if($slug == 'admin')
+                {
 					return redirect('/admin');
-				}elseif($slug == 'pengunjung'){
+
+				}elseif($slug == 'pengunjung')
+                {
 					return redirect('/visitor');
 				}
 
@@ -42,6 +45,9 @@ class LoginController extends Controller
 
     		return redirect()->back()->with(['error' => 'Akun anda belum di aktivasi']);
     	}
+
+        // $ck = Sentinel::getUser()->roles()->first()->slug;
+        // dd($ck);
 		
     }
 
