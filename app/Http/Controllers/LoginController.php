@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Sentinel;
 use App\User;
+use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
+
 class LoginController extends Controller
 {
     public function index(){
@@ -13,17 +15,34 @@ class LoginController extends Controller
 
     public function postLogin(Request $request){
 
-		if(Sentinel::authenticate($request->all())){
+    	$remember_me = false;
 
-			$slug = Sentinel::getUser()->roles()->first()->slug;
-			if($slug == 'admin'){
-				return redirect('/admin');
-			}elseif($slug == 'pengunjung'){
-				return redirect('/visitor');
+    	if(isset($request->$remember_me))
+
+    		$remember_me = true;
+
+    	try {
+
+	    		if(Sentinel::authenticate($request->all(), $remember_me)){
+
+				$slug = Sentinel::getUser()->roles()->first()->slug;
+
+				if($slug == 'admin'){
+					return redirect('/admin');
+				}elseif($slug == 'pengunjung'){
+					return redirect('/visitor');
+				}
+
+			}else{
+
+				return redirect()->back()->with(['error' => 'Email dan Password anda Salah']);
 			}
-		}else{
-			return redirect()->back()->with(['error' => 'Email dan Password anda Salah']);
-		}
+    		
+    	} catch (NotActivatedException $e) {
+
+    		return redirect()->back()->with(['error' => 'Akun anda belum di aktivasi']);
+    	}
+		
     }
 
 

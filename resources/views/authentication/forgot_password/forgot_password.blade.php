@@ -9,7 +9,7 @@
         </div>
 
         <div class="panel-body">
-          <form action="/forgot-password" method="POST">
+          <form action="/lupa-password" method="POST">
             {{ csrf_field() }}
 
             @if(session('success'))

@@ -65,7 +65,7 @@
                 Remember Me 
               </div>
             </div>
-                  <a href="{{url('/forgot-password')}}">Lupa Password?</a>
+                  <a href="{{url('/lupa-password')}}">Lupa Password?</a>
             <div class="form-group">
               <input type="submit" value="LOGIN" class="btn btn-success pull-right">
             </div>

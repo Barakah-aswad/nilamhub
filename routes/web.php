@@ -24,12 +24,22 @@ Route::post('/register', 'RegisterController@store');
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@postLogin');
 
-Route::get('/admin', 'AdminController@index');
-
-
 Route::get('/activate/{email}/{code}', 'AktifasiController@aktifasi');
 Route::post('/logout','LoginController@logout');
 
 
+
+Route::get('/lupa-password','ForgetPasswordController@index');
+Route::post('/lupa-password','ForgetPasswordController@store');
+
+Route::get('/reset/{email}/{reset_code}','ForgetPasswordController@resetPassword');
+Route::post('/reset/{email}/{reset_code}','ForgetPasswordController@postResetPassword');
+
+
+
+
+
+
 Route::get('/visitor','PengunjungController@index');
 
+Route::get('/admin', 'AdminController@index');
