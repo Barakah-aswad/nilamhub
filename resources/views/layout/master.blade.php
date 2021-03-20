@@ -42,7 +42,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+              <a href="" class="site_title"><i class="fa fa-paw"></i> <span>Wolasi Link</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -69,10 +69,12 @@
             <br />
 
             <!-- sidebar menu -->
-            @if(Sentinel::getUser()->roles()->first()->slug == 'visitor')
-            @include('include.sidebar_user.sidebar_visitor')
-            @else
-            @include('include.sidebar')
+            @if(Sentinel::getUser()->roles()->first()->slug == 'pengunjung')
+                @include('include.sidebar_pengunjung.sidebar_visitor')
+            @elseif(Sentinel::getUser()->roles()->first()->slug == 'petani')
+                @include('include.sidebar_petani.sidebar_petani')
+            @elseif(Sentinel::getUser()->roles()->first()->slug == 'admin')
+                @include('include.sidebar_admin.sidebar_admin')
             @endif
             <!-- /sidebar menu -->
 

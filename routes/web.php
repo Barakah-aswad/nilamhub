@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('base');
 });
 
 //Visitor
@@ -45,8 +45,6 @@ Route::group(['middleware' => 'pengunjung'], function(){
 });
 
 //Admin
-
-
 
 Route::group(['middleware' => 'admin'], function(){
 	Route::get('/manager', 'AdminController@index');
