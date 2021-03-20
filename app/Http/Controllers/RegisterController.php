@@ -25,7 +25,7 @@ class RegisterController extends Controller
     	$role->users()->attach($user);
 
     	$this->kirimEmail($user,$aktifasi->code);
-    	return redirect('/login');
+    	return redirect('/login')->with(['success' => 'Cek email anda untuk Konfirmasi akun']);
 
     }
 

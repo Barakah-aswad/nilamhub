@@ -31,21 +31,27 @@ Route::group(['middleware' => 'visitors'],function(){
 
 	Route::get('/reset/{email}/{reset_code}','ForgetPasswordController@resetPassword');
 	Route::post('/reset/{email}/{reset_code}','ForgetPasswordController@postResetPassword');
-	Route::get('/activate/{email}/{code}', 'AktifasiController@aktifasi');
-	Route::get('/reset/{email}/{code}', 'AktifasiController@aktifasi');
+	
+	
 });
 
-	
-
+Route::get('/activate/{email}/{code}', 'AktifasiController@aktifasi');	
+Route::get('/reset/{email}/{code}', 'AktifasiController@aktifasi');
 Route::post('/logout','LoginController@logout');
 
 //Pengunjung
 Route::group(['middleware' => 'pengunjung'], function(){
 	Route::get('/visitor','PengunjungController@index');
+	Route::get('/daftar-petani', 'PengunjungController@buatAkunPetani');
+	Route::post('/daftar-petani','PengunjungController@simpanAkunPetani');
 });
 
 //Admin
 
 Route::group(['middleware' => 'admin'], function(){
 	Route::get('/manager', 'AdminController@index');
+});
+
+Route::group(['middleware' => 'petani'], function(){
+	Route::get('/petani','PetaniController@index');
 });

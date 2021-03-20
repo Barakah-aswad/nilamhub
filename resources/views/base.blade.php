@@ -61,9 +61,12 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
         </a>
         @if(Sentinel::check())
-        <a class="btn btn-sm btn-outline-secondary" href="#">LogOut</a>
+        <form action="/logout" method="POST" id="logout-form">
+          {{csrf_field()}}
+           <a class="btn btn-sm btn-outline-secondary" href="#" onclick="document.getElementById('logout-form').submit()">LogOut</a>
+        </form>
         @else
-        <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a><br>
+        <a class="btn btn-sm btn-outline-secondary" href="/register">Sign up</a><br>
         <a class="btn btn-sm btn-outline-secondary" href="/login">Sign in</a>
         @endif
       </div>

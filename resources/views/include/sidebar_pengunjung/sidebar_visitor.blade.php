@@ -4,6 +4,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+                      <li><a href="/visitor">Halaman utama</a></li>
                       <li><a href="/daftar-petani">Formulir Peserta</a></li>
                     </ul>
                   </li>

@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 //use Illuminate\Foundation\Auth\User as Authenticatable;
 use Cartalyst\Sentinel\Users\EloquentUser;
 use Illuminate\Notifications\Notifiable;
+use App\Petani;
 
 class User extends EloquentUser
 {
@@ -45,5 +46,10 @@ class User extends EloquentUser
 
     public static function byEmail($email){
         return static::whereEmail($email)->first();
+    }
+
+    public function petani(){
+
+        return $this->belongsTo('App\Petani');
     }
 }

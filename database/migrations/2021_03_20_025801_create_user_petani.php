@@ -28,7 +28,6 @@ class CreateUserPetani extends Migration
             $table->timestamps();
 
             $table->engine = 'InnoDB';
-            $table->unique('role_id');
             $table->unique('nomor_kk');
             $table->unique('nomor_ktp');
         });

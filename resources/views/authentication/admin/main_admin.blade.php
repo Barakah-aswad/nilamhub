@@ -1,7 +1,7 @@
 @extends('layout.master')
 
   @section('title')
-        Genset history
+        Wolasi Post
   @endsection
 
   @section('content')

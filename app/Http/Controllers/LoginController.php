@@ -34,7 +34,9 @@ class LoginController extends Controller
 				}elseif($slug == 'pengunjung')
                 {
 					return redirect('/visitor');
-				}
+				}elseif ($slug == 'petani') {
+                    return redirect('/petani');
+                }
 
 			}else{
 
