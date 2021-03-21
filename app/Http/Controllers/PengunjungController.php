@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Sentinel;
 use App\Petani;
+use App\Aktivasi_akun;
+use Carbon;
 
 class PengunjungController extends Controller
 {
@@ -27,6 +29,8 @@ class PengunjungController extends Controller
 
 	public function simpanAkunPetani(Request $request){
 
+		//$expires = $this->expires();
+
 		$dlt_role = Sentinel::findById($this->getUserId());
 		$rol_dlt  = Sentinel::findRoleBySlug('pengunjung');
 
@@ -43,11 +47,15 @@ class PengunjungController extends Controller
 		$petani->role_id = $this->getUserRole();
 		//return $petani;
 
+		$aktiva = new aktivasi_akun;
+		$aktiva->user_id = $this->getUserId();
+
 		$nw_role1 = Sentinel::findById($this->getUserId());
 		$nw_role = Sentinel::findRoleBySlug('petani');
 
 		$rol_dlt->users()->detach($dlt_role);
 		$petani->save();
+		$aktiva->save();
 		$nw_role->users()->attach($this->getUserId());
 		
 
@@ -55,4 +63,10 @@ class PengunjungController extends Controller
 		Sentinel::logout(null, true);
 		return redirect('/login')->with(['succsess' => 'Anda di alihkan untuk login ulang']);
 	}
+
+	protected function expires() : Carbon
+	{
+		return Carbon::now()->subSecond($this->expires);
+	}
+
 }

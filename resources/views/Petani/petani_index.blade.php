@@ -8,6 +8,7 @@
 <div class="right_col" role="main">
           <!-- top tiles -->
 
+
           <div class="clearfix"></div>
               <div class="row">
                 <div class="col-md-12">

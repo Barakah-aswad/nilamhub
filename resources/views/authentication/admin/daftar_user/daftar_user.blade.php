@@ -90,7 +90,7 @@
                         <tr>
                           <th scope="row">{{$users->id}}</th>
                           <td>{{$petanis->first_name}}</td>
-                          <td>{{$petanis->alamat_lengkap}}</td>
+                          <td>{{$petanis->location}}</td>
                           <td>{{$petanis->umur}}</td>
                           <td>{{$petanis->tmp_lahir}}</td>
                           <td>{{$petanis->created_at}}</td>
