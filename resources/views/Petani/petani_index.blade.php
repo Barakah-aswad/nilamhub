@@ -65,7 +65,7 @@
 
                 <div class="row x_title">
                   <div class="col-md-6">
-                    <h3>HI !.<b> {{Sentinel::getUser()->first_name}} <small></b>status pengunjung</</small></h3>
+                    <h3>HI !.<b> {{Sentinel::getUser()->first_name}} <small></b></small></h3>
                   </div>
                 </div>
 

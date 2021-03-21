@@ -50,6 +50,7 @@ Route::group(['middleware' => 'pengunjung'], function(){
 
 Route::group(['middleware' => 'admin'], function(){
 	Route::get('/manager', 'AdminController@index');
+	Route::get('/daftar-peserta','AdminController@daftarPeserta');
 });
 
 Route::group(['middleware' => 'petani'], function(){

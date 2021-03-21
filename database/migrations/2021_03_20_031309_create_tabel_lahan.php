@@ -16,6 +16,9 @@ class CreateTabelLahan extends Migration
         Schema::create('lahans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('petani_id')->unsigned();
+            $table->foreign('petani_id')->references('id')->on('petanis')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
             $table->integer('total_luas');
             $table->integer('lat');
             $table->integer('log');

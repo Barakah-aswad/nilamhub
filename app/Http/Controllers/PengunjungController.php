@@ -17,7 +17,8 @@ class PengunjungController extends Controller
 	}
 
 	public function getUserId(){
-		return $user_id = Sentinel::getUser()->first()->id;
+
+		return $user_id = Sentinel::getUser()->id;
 	}
 
 	public function getUserRole(){
@@ -28,8 +29,6 @@ class PengunjungController extends Controller
 
 		$dlt_role = Sentinel::findById($this->getUserId());
 		$rol_dlt  = Sentinel::findRoleBySlug('pengunjung');
-		$rol_dlt->users()->detach($dlt_role);
-
 
 		$petani = new petani;
 		$petani->user_id = $this->getUserId();
@@ -43,13 +42,14 @@ class PengunjungController extends Controller
 		$petani->tgl_lahir = $request->tgl_lahir;
 		$petani->role_id = $this->getUserRole();
 		//return $petani;
-		$petani->save();
 
-
-		$nw_role = Sentinel::findById($this->getUserId());
+		$nw_role1 = Sentinel::findById($this->getUserId());
 		$nw_role = Sentinel::findRoleBySlug('petani');
-		$nw_role->users()->attach($petani);
 
+		$rol_dlt->users()->detach($dlt_role);
+		$petani->save();
+		$nw_role->users()->attach($this->getUserId());
+		
 
 		
 		Sentinel::logout(null, true);

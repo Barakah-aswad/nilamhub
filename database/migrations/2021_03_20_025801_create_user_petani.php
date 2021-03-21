@@ -16,6 +16,9 @@ class CreateUserPetani extends Migration
         Schema::create('petanis', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
             $table->integer('nomor_kk');
             $table->integer('nomor_ktp');
             $table->string('alamat_lengkap');
