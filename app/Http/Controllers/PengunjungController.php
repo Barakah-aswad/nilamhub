@@ -49,10 +49,12 @@ class PengunjungController extends Controller
 
 		$aktiva = new aktivasi_akun;
 		$aktiva->user_id = $this->getUserId();
+		$aktiva->petani_id = $petani->user_id;
 
 		$nw_role1 = Sentinel::findById($this->getUserId());
 		$nw_role = Sentinel::findRoleBySlug('petani');
 
+		//return $aktiva;
 		$rol_dlt->users()->detach($dlt_role);
 		$petani->save();
 		$aktiva->save();

@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Cartalyst\Sentinel\Users\EloquentUser;
 use Illuminate\Notifications\Notifiable;
 use App\Petani;
+use App\Aktivasi_akun;
 
 class User extends EloquentUser
 {
@@ -50,6 +51,10 @@ class User extends EloquentUser
 
     public function petani(){
 
-        return $this->belongsTo('App\Petani');
+        return $this->hasOne(Petani::class,'user_id');
+    }
+
+    public function Aktivasi_akun(){
+        return $this->hasMany(Aktivasi_akun::class);
     }
 }

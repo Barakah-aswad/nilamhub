@@ -23,6 +23,6 @@
         @if(Sentinel::check())
         <h3>Hallo, <b>{{ Sentinel::getUser()->first_name }}</b></h3>
         @else
-        <h3 class="text-muted">Wolasi#Link</h3>
+        <h3 class="text-muted">Wolasi #Post</h3>
         @endif
       </div>

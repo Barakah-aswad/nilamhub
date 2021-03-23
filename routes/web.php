@@ -51,6 +51,10 @@ Route::group(['middleware' => 'pengunjung'], function(){
 Route::group(['middleware' => 'admin'], function(){
 	Route::get('/manager', 'AdminController@index');
 	Route::get('/daftar-peserta','AdminController@daftarPeserta');
+
+	Route::get('/verifikasi-akun','AdminController@verifikasiAkun');
+	Route::get('/aktifasi/{id}','AdminController@showAktifasi');
+	Route::put('/aktifasi/{id}','AdminController@storeAktifasi');
 });
 
 Route::group(['middleware' => 'petani'], function(){
