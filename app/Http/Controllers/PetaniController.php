@@ -28,4 +28,9 @@ class PetaniController extends Controller
    		//$data = $data["data"];
     	//$data = json_decode($dt,true);
     }
+
+    public function registrasiLahan()
+    {
+        return view('Lahan.registrasi_lahan');
+    }
 }

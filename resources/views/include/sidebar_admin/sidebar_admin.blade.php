@@ -11,6 +11,26 @@
                 </ul>
               </div>
               <div class="menu_section">
+                <h3>Komoditas</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-leaf"></i>Tanaman <span class="fa fa-chevron-down"></span>
+                    <ul class="nav child_menu">
+                      <li><a href="/daftar-komoditas">Daftar Komoditas</a></li>
+                    </ul>
+                    </li>
+                </ul>
+              </div>
+              <div class="menu_section">
+                <h3>Lahan</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-map"></i>Lahan <span class="fa fa-chevron-down"></span>
+                    <ul class="nav child_menu">
+                      <li><a href="/daftar-lahan">Daftar Lahan</a></li>
+                    </ul>
+                    </li>
+                </ul>
+              </div>
+              <div class="menu_section">
                 <h3>Live On</h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>

@@ -59,7 +59,7 @@ return [
     'image' => 'The :attribute must be an image.',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
-    'integer' => 'The :attribute must be an integer.',
+    'integer' => 'Di butuhkan angka, bukan abjad',
     'ip' => 'The :attribute must be a valid IP address.',
     'ipv4' => 'The :attribute must be a valid IPv4 address.',
     'ipv6' => 'The :attribute must be a valid IPv6 address.',
@@ -133,6 +133,30 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'nomor_kk' => [
+            'required' => 'Dibutuhkan Nomor Kartu Keluarga',
+            'unique'   => 'Kartu keluarga anda sudah terdaftar'
+        ],
+        'nomor_ktp' => [
+            'required' => 'Dibutuhkan Nomor KTP',
+            'unique'   => 'KTP anda sudah terdaftar'
+        ],
+        'umur' => [
+            'required' => 'Dibutuhkan umur anda',
+            'min'      => 'Umur minimal 2 digit'
+        ],
+        'tgl_lahir' => [
+            'required' => 'Tanggal lahir anda di butuhkan'
+        ],
+        'tempat_lahir' => [
+            'required' => 'Alamat tempat lahir anda di butuhkan'
+        ],
+        'alamat_lengkap' => [
+            'required' => 'Alamat lengkap anda di butuhkan'
+        ],
+        'jml_angg_klg' => [
+            'required' => 'Jumlah Anggota Keluarga'
+        ]
     ],
 
     /*

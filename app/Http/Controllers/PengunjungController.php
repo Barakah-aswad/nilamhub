@@ -31,6 +31,21 @@ class PengunjungController extends Controller
 
 		//$expires = $this->expires();
 
+		// $messages = [
+		// 			'nomor_kk.required' => 'Input Nomor KK',
+		// 			'nomor_ktp.required' => 'Input Nomor KTP'
+		// 			];
+
+		$this->validate($request,[
+			'nomor_kk' 	=> 'required|unique:petanis|integer|min:5',
+			'nomor_ktp' => 'required|unique:petanis|integer|min:5',
+			'umur'      => 'required|integer|min:2',
+			'tgl_lahir' => 'required|integer|min:8',
+			'alamat_lengkap' => 'required',
+			'jml_angg_klg' => 'required|integer',
+			'tempat_lahir' => 'required'
+		]);
+
 		$dlt_role = Sentinel::findById($this->getUserId());
 		$rol_dlt  = Sentinel::findRoleBySlug('pengunjung');
 

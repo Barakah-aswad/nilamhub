@@ -55,8 +55,12 @@ Route::group(['middleware' => 'admin'], function(){
 	Route::get('/verifikasi-akun','AdminController@verifikasiAkun');
 	Route::get('/aktifasi/{id}','AdminController@showAktifasi');
 	Route::put('/aktifasi/{id}','AdminController@storeAktifasi');
+	//Route::get('/aktifasi{id}/cencel','AdminController@cencelAktifasi');
+	Route::get('/daftar-komoditas','AdminController@komoditasIndex');
+	Route::get('/daftar-lahan','AdminController@lahanIndex');
 });
 
 Route::group(['middleware' => 'petani'], function(){
 	Route::get('/petani','PetaniController@index');
+	Route::get('/registrasi-lahan','PetaniController@registrasiLahan');
 });

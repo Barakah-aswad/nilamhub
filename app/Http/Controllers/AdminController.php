@@ -69,4 +69,14 @@ class AdminController extends Controller
         $updateAktivasi->save();
         return redirect('/verifikasi-akun');
     }
+    // Komoditas
+    public function komoditasIndex(){
+        return view('authentication.admin.Komoditas.index');
+    }
+
+    // Lahan
+    public function lahanIndex()
+    {
+        return view('authentication.admin.Lahan.index');
+    }
 }
