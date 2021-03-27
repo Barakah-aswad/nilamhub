@@ -62,5 +62,7 @@ Route::group(['middleware' => 'admin'], function(){
 
 Route::group(['middleware' => 'petani'], function(){
 	Route::get('/petani','PetaniController@index');
+	Route::get('/daftar-lahan','PetaniController@daftarLahan');
 	Route::get('/registrasi-lahan','PetaniController@registrasiLahan');
+	Route::post('/registrasi-lahan','PetaniController@simpanLahan');
 });

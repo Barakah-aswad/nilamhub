@@ -5,7 +5,7 @@
     <div class="col-sm-4 col-sm-12 col-sm-offset-4">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title"> Login Form </h3>
+          <h3 class="panel-title">Halaman Login</h3>
         </div>
 
         <div class="panel-body">

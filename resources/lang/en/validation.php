@@ -59,7 +59,7 @@ return [
     'image' => 'The :attribute must be an image.',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
-    'integer' => 'Di butuhkan angka, bukan abjad',
+    'integer' => 'Di butuhkan angka, bukan campuran huruf',
     'ip' => 'The :attribute must be a valid IP address.',
     'ipv4' => 'The :attribute must be a valid IPv4 address.',
     'ipv6' => 'The :attribute must be a valid IPv6 address.',
@@ -156,6 +156,10 @@ return [
         ],
         'jml_angg_klg' => [
             'required' => 'Jumlah Anggota Keluarga'
+        ],
+        'no_sertifikat' => [
+            'required' => 'Di butuhkan No.Sertifikat',
+            'unique'   => 'Nomor Sertifikat Telah terdaftar'
         ]
     ],
 

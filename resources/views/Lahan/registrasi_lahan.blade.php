@@ -44,17 +44,17 @@
                 <div class="x_panel">
                   <div class="x_content">
                     <br />
-                    <form class="form-horizontal form-label-left" action="" method="POST">
+                    <form class="form-horizontal form-label-left" action="/registrasi-lahan" method="POST">
 
                     	{{ csrf_field()}}
 
                     	 <div class="form-group row">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Nomor Kartu Keluarga</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Total Luas</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
                           
-                          <input type="text" name="nomor_kk" class="form-control @error('nomor_kk') is-invalid @enderror" value="{{old('nomor_kk')}}"  placeholder="Cth: 7405xxxx" autofocus>
+                          <input type="text" name="total_luas" class="form-control @error('total_luas') is-invalid @enderror" value="{{old('total_luas')}}"  placeholder="Cth: 19000" autofocus>
 
-                            @error('nomor_kk')
+                            @error('total_luas')
                                     <span class="fa fa-credit-card invalid-feedback left" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -63,11 +63,11 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Nomor Identitas KTP</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Alamat Lahan</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                          <input type="text" name="nomor_ktp" class="form-control @error('nomor_ktp') is-invalid @enderror" value="{{old('nomor_ktp')}}" placeholder="Cth: 7405xxxx" autofocus>
+                          <input type="text" name="alamat_lahan" class="form-control @error('alamat_lahan') is-invalid @enderror" value="{{old('alamat_lahan')}}" placeholder="Cth: Jln. Budi Utomo" autofocus>
 
-                          @error('nomor_ktp')
+                          @error('alamat_lahan')
                             <span class="fa fa-credit-card invalid-feedback left" role="alert">
                               <strong>{{ $message }}</strong>
                             </span>
@@ -76,11 +76,11 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Alamat Lengkap</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Nomor Sertifikat</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                          <input type="text" name="alamat_lengkap" class="form-control @error('alamat_lengkap') is-invalid @enderror" value="{{old('alamat_lengkap')}}" placeholder="Cth: Desa:xxxx, Kec.xxx">
+                          <input type="text" name="no_sertifikat" class="form-control @error('no_sertifikat') is-invalid @enderror" value="{{old('no_sertifikat')}}" placeholder="Cth: 345">
 
-                          @error('alamat_lengkap')
+                          @error('no_sertifikat')
                           <span class="fa fa-home invalid-feedback left" role="alert">
                             {{$message}}
                           </span>
@@ -89,11 +89,11 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Umur</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Tahun Garap</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                          <input type="text" name="umur" value="{{old('umur')}}" class="form-control @error('umur') is-invalid @enderror" autofocus>
+                          <input type="text" name="tahun_garap" value="{{old('tahun_garap')}}" class="form-control @error('tahun_garap') is-invalid @enderror" autofocus>
 
-                          @error('umur')
+                          @error('tahun_garap')
                             <span class="fa fa-calendar invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
                             </span>
@@ -103,53 +103,37 @@
                       </div>
 
                       <div class="form-group row">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Jml Anggota keluarga</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Jenis Pengaman Pagar</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                          <input type="text" name="jml_angg_klg" value="{{old('jml_angg_klg')}}" class="form-control @error('jml_angg_klg') is-invalid @enderror" autofocus>
-
-                          @error('jml_angg_klg')
-                           <span class="fa fa-user invalid-feedback left" role="alert">
-                              <strong>{{$message }}</strong>
-                            </span>
-                          @enderror
-
+                          <select id="heard" name="jenis_pengaman" class="form-control" required>
+                          <option value="">Jenis Pagar</option>
+                          <option value="Tidak di pagar">Tidak di pagar</option>
+                          <option value="Kawat duri">Pagar Kawat duri</option>
+                          <option value="Pagar alam">Pagar alam</option>
+                          <option value="Pagar listrik">Pagar listrik</option>
+                        </select>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Agama</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Status Tanah</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                          <select id="heard" name="agama" class="form-control" required>
-													<option value="">Pilih Agama</option>
-													<option value="Islam">Islam</option>
-													<option value="Kristen">Kristen</option>
-													<option value="Budha">Budha</option>
-													<option value="Khatolik">Khatolik</option>
-													<option value="Hindu">Hindu</option>
+                          <select id="heard" name="status_tanah" class="form-control" required>
+													<option value="">Status Tanah</option>
+													<option value="milik sendiri">Milik Sendiri</option>
+													<option value="sewa">Sewa</option>
+													<option value="izin pakai">Izin Pakai</option>
 												</select>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Tempat Lahir</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Perkiraan Jarak Lahan</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                          <input type="text" name="tempat_lahir" value="{{old('tempat_lahir')}}" class="form-control @error('tempat_lahir') is-invalid @enderror" autofocus>
+                          <input type="text" name="jrk_lahan" value="{{old('jrk_lahan')}}" class="form-control @error('jrk_lahan') is-invalid @enderror" autofocus>
 
-                          @error('tempat_lahir')
+                          @error('jrk_lahan')
                           <span class="fa fa-calendar invalid-feedback left" role="alert">
                             {{$message}}
                           </span>
-                          @enderror
-
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Tanggal lahir</label>
-                        <div class="col-md-9 col-sm-9 col-xs-9">
-                          <input type="text" name="tgl_lahir" value="{{old('tgl_lahir')}}" class="form-control @error('tgl_lahir') is-invalid @enderror" autofocus>
-
-                          @error('tgl_lahir')
-                            <span class="fa fa-calendar invalid-feedback left" role="alert">
-                              <strong>{{ $message }}</strong>
-                            </span>
                           @enderror
 
                         </div>
