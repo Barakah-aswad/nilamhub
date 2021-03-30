@@ -55,14 +55,21 @@ Route::group(['middleware' => 'admin'], function(){
 	Route::get('/verifikasi-akun','AdminController@verifikasiAkun');
 	Route::get('/aktifasi/{id}','AdminController@showAktifasi');
 	Route::put('/aktifasi/{id}','AdminController@storeAktifasi');
+
 	//Route::get('/aktifasi{id}/cencel','AdminController@cencelAktifasi');
 	Route::get('/daftar-komoditas','AdminController@komoditasIndex');
-	Route::get('/daftar-lahan','AdminController@lahanIndex');
-});
 
+	//lahan
+	Route::get('/daftar_lahan','AdminController@lahanIndex');
+});
+	
+	//Petani
 Route::group(['middleware' => 'petani'], function(){
 	Route::get('/petani','PetaniController@index');
+
 	Route::get('/daftar-lahan','PetaniController@daftarLahan');
 	Route::get('/registrasi-lahan','PetaniController@registrasiLahan');
 	Route::post('/registrasi-lahan','PetaniController@simpanLahan');
+	//proposal tanam
+	Route::get('/proposal-tanam','PetaniController@proposalTanam');
 });

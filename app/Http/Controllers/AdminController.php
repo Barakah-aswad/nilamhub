@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Sentinel;
 use App\Petani;
 use App\Aktivasi_akun;
+use App\Lahan;
 use App\User;
 use DB;
 use Carbon\Carbon;
@@ -47,12 +48,7 @@ class AdminController extends Controller
         $verifikasi = aktivasi_akun::findOrFail($id);
         return view('invoce.invoce',compact('verifikasi')); 
     }
-
-    // protected function expires() : Carbon
-    // {
-    //     return Carbon::now()->timestamp;
-    // }
-
+    
     public function storeAktifasi(Request $request, $id){
 
         //$exp = $this->expires();
@@ -77,6 +73,8 @@ class AdminController extends Controller
     // Lahan
     public function lahanIndex()
     {
-        return view('authentication.admin.Lahan.index');
+        $lahan = lahan::all();
+        //return $lahan->petani[0]['id'];
+        return view('authentication.admin.Lahan.index',compact('lahan'));
     }
 }

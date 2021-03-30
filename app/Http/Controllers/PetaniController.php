@@ -13,25 +13,6 @@ class PetaniController extends Controller
 {
     public function index(){
 
-    	
-    	// if ($id = Sentinel::getUser()->id) {
-    	// 	$aktiva = DB::table('aktivasi_akuns')->select('user_id','verifed')
-    	// 									   ->where('user_id','=',$id)
-    	// 									   ->get();
-    	// 	//$dt[] = json_decode($data,true);
-    	// 	$data = $aktiva[0]->verifed;
-    	// 	return view('Petani.petani_index',compact('data'));
-    	// }else{
-    	// 	Sentinel::logout(null, true);
-    	// }
-    	
-   		
-   		//$data = json_decode($check, true);
-   		//$data = $data["data"];
-    	//$data = json_decode($dt,true);
-        //$id = Sentinel::getUser()->id;
-        //$data = aktivasi_akun::select('verifed')where('verifed','=', 1)->find(Sentinel::getUser()->id);
-        //return $data;
         return view('Petani.petani_index');
     }
 
@@ -83,5 +64,10 @@ class PetaniController extends Controller
     {
         $lahan = lahan::where('petani_id','=',$this->getPetaniID())->get();
         return view('Lahan.daftar_lahan',compact('lahan'));
+    }
+
+    public function proposalTanam()
+    {
+        //$proposal =
     }
 }

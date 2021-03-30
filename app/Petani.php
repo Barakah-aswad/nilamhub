@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Aktivasi_akun;
 use App\User;
+use App\Lahan;
 
 class Petani extends Model
 {
@@ -24,6 +25,10 @@ class Petani extends Model
 
     public function petani(){
         return $this->hasMany(Aktivasi_akun::class);
+    }
+
+    public function lahan(){
+        return $this->hasMany(Lahan::class);
     }
     
 }

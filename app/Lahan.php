@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Petani;
 
 class Lahan extends Model
 {
@@ -18,4 +19,9 @@ class Lahan extends Model
     	'jenis_pengaman',
     	'jrk_lahan'
     ];
+
+    public function petani()
+    {
+        return $this->belongsTo(Petani::class,'user_id');
+    }
 }

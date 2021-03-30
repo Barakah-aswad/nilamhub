@@ -14,8 +14,7 @@ class CreateTabelAktifasiPetani extends Migration
     public function up()
     {
         Schema::create('aktivasi_akuns', function (Blueprint $table) {
-            $table->bigIncrements('id');
-
+            $table->id();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')
                   ->onUpdate('cascade')
