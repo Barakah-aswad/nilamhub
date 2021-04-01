@@ -8,6 +8,7 @@ use Cartalyst\Sentinel\Users\EloquentUser;
 use Illuminate\Notifications\Notifiable;
 use App\Petani;
 use App\Aktivasi_akun;
+use App\Profil;
 
 class User extends EloquentUser
 {
@@ -23,8 +24,7 @@ class User extends EloquentUser
         'password',
         'last_name',
         'first_name',
-        'permissions',
-        'location',
+        'permissions'
     ];
 
     /**
@@ -56,5 +56,10 @@ class User extends EloquentUser
 
     public function Aktivasi_akun(){
         return $this->hasMany(Aktivasi_akun::class);
+    }
+
+    public function profil()
+    {
+        return $this->hasOne(Profil::class);
     }
 }

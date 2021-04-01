@@ -6,6 +6,7 @@
                     <ul class="nav child_menu">
                       <li><a href="/visitor">Halaman utama</a></li>
                       <li><a href="/daftar-petani">Formulir Peserta</a></li>
+                      <li><a href="/profil">Profil</a></li>
                     </ul>
                   </li>
                 </ul>

@@ -10,7 +10,13 @@
                     <img src="images/img.jpg" alt="">{{Sentinel::getUser()->first_name}}
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="javascript:;"> Profile</a>
+                    @if(Sentinel::getUser()->roles()->first()->slug == 'admin')
+                    <a class="dropdown-item"  href="/profil-admin"> Profile</a>
+                    @elseif(Sentinel::getUser()->roles()->first()->slug == 'pengunjung')
+                    <a class="dropdown-item"  href="/profil-pengunjung"> Profile</a>
+                    @elseif(Sentinel::getUser()->roles()->first()->slug == 'petani')
+                    <a class="dropdown-item"  href="/profil-petani"> Profile</a>
+                    @endif
 
                       <a class="dropdown-item"  href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>

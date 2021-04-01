@@ -27,13 +27,6 @@
 
             <div class="form-group">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                <input type="text" name="location" class="form-control" placeholder="Alamat">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                 <input type="email" name="email" class="form-control" placeholder="Email">
               </div>

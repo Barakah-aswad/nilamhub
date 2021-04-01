@@ -149,7 +149,8 @@ return [
             'required' => 'Tanggal lahir anda di butuhkan'
         ],
         'tempat_lahir' => [
-            'required' => 'Alamat tempat lahir anda di butuhkan'
+            'required' => 'Alamat tempat lahir anda di butuhkan',
+            'date'     => 'Tanggal lahir di butuhkan'
         ],
         'alamat_lengkap' => [
             'required' => 'Alamat lengkap anda di butuhkan'
@@ -160,6 +161,9 @@ return [
         'no_sertifikat' => [
             'required' => 'Di butuhkan No.Sertifikat',
             'unique'   => 'Nomor Sertifikat Telah terdaftar'
+        ],
+        'no_telepon' => [
+            'required' => 'Dibutuhkan nomor telepon'
         ]
     ],
 

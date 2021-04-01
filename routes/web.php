@@ -39,11 +39,14 @@ Route::get('/activate/{email}/{code}', 'AktifasiController@aktifasi');
 Route::get('/reset/{email}/{code}', 'AktifasiController@aktifasi');
 Route::post('/logout','LoginController@logout');
 
+
 //Pengunjung
 Route::group(['middleware' => 'pengunjung'], function(){
 	Route::get('/visitor','PengunjungController@index');
 	Route::get('/daftar-petani', 'PengunjungController@buatAkunPetani');
-	Route::post('/daftar-petani','PengunjungController@simpanAkunPetani');
+	Route::post('/daftar_petani/{id}','PengunjungController@simpanAkunPetani');
+	Route::get('/profil-pengunjung','ProfilController@registerProfil');
+	Route::post('/profil-pengunjung','ProfilController@simpanProfil');
 });
 
 //Admin
@@ -61,11 +64,17 @@ Route::group(['middleware' => 'admin'], function(){
 
 	//lahan
 	Route::get('/daftar_lahan','AdminController@lahanIndex');
+
+	//Profil
+	
 });
 	
 	//Petani
 Route::group(['middleware' => 'petani'], function(){
 	Route::get('/petani','PetaniController@index');
+	Route::get('/profil-petani','ProfilController@index');
+	Route::get('/profil-edit','ProfilController@editProfil');
+	//Route::post('/profil-petani','ProfilController@simpanProfil');
 
 	Route::get('/daftar-lahan','PetaniController@daftarLahan');
 	Route::get('/registrasi-lahan','PetaniController@registrasiLahan');

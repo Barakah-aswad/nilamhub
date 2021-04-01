@@ -28,7 +28,8 @@ class AdminController extends Controller
     	return view('authentication.admin.daftar_user.daftar_user',compact('user','petani'));
     }
 
-    public function verifikasiAkun(){
+    public function verifikasiAkun()
+    {
 
         //$verifed = aktivasi_akun::all();
         $user = DB::table('users')
