@@ -8,7 +8,7 @@ use App\Petani;
 class Lahan extends Model
 {
     protected $fillable = [
-    	'user_id',
+    	'petani_id',
     	'total_luas',
     	'lat',
     	'log',

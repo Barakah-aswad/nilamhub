@@ -22,7 +22,7 @@ class CreateTableProfil extends Migration
             $table->string('jenis_kelamin');
             $table->integer('no_telepon');
             $table->string('pekerjaan');
-            $table->string('alamat_provinsi');
+            $table->string('wilayah');
             $table->string('alamat_lengkap');
             $table->integer('nomor_kk')->nullable();
             $table->integer('nomor_ktp')->nullable();

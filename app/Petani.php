@@ -16,11 +16,14 @@ class Petani extends Model
     ];
 
     public function petani(){
-        return $this->hasMany(Aktivasi_akun::class);
+        return $this->hasOne(Aktivasi_akun::class);
     }
 
     public function lahan(){
         return $this->hasMany(Lahan::class);
+    }
+    public function user(){
+        return belongsTo(User::class);
     }
     
 }

@@ -26,6 +26,12 @@ class PengunjungController extends Controller
 		return $role_id = Sentinel::getUser()->roles()->id = 3;
 	}
 
+	public function getIdPetani(){
+		
+		$user = User::find($this->getUserId());
+		return $user->petani->id;
+	}
+
 	public function buatAkunPetani(){
 		
 		// $user = DB::table('users')
@@ -33,8 +39,20 @@ class PengunjungController extends Controller
 		// 			->select('users.*','profils.*')
 		// 			->where('users.id','=',$this->getUserId())
 		// 			->get();
-		$user = User::find($this->getUserId());
-		return view('invoce.invoce_register_petani',compact('user'));
+		$user = User::findOrFail($this->getUserId());
+
+		if (is_null($user->profil)) {
+			return redirect('/profil-pengunjung')->with(['error' => 'Harap Lengkapi data profil sebelum mendaftar']);
+		}else{
+			return view('invoce.invoce_register_petani',compact('user'));
+		}
+		
+		// if (!$user->profil == null) {
+		// 	
+		// }else{
+		// 	
+		// }
+		
 	}
 
 	public function verifikasiAkun()
@@ -52,25 +70,24 @@ class PengunjungController extends Controller
         return view('authentication.admin.daftar_user.verifikasi_akun',compact('user'));
     }
 
-	public function simpanAkunPetani(Request $request, $id)
+	public function simpanAkunPetani(Request $request)
 	{
-		$rating = 0;
+		
+		$rating = 1;
 
-		$dlt_role 		   = Sentinel::findById($id); //Delete Role
+		$dlt_role 		   = Sentinel::findById($this->getUserId()); //Delete Role
 		$rol_dlt  		   = Sentinel::findRoleBySlug('pengunjung');
 
 		$petani 		   = new petani;							//Create user
-		$petani->user_id   = $id;
+		$petani->user_id   = $this->getUserId();
 		$petani->rating    = $rating;
 
 		
 
 		$aktiva 		   = new aktivasi_akun;						//Create Aktifa
-		$aktiva->user_id   = $id;
-		$aktiva->petani_id = $petani->user_id;
-
-		//echo " Petani: $petani, Aktiva: $aktiva";
-		$nw_role1          = Sentinel::findById($id); //Rename Role
+		$aktiva->user_id   = $this->getUserId();
+		
+		$nw_role1          = Sentinel::findById($this->getUserId()); //Rename Role
 		$nw_role           = Sentinel::findRoleBySlug('petani');
 
 		
@@ -80,7 +97,7 @@ class PengunjungController extends Controller
 		$nw_role->users()->attach($this->getUserId());
 		
 		Sentinel::logout(null, true);
-		return redirect('/login')->with(['succsess' => 'Anda di alihkan untuk login ulang']);
+		return redirect('/login')->with(['success' => 'Saat ini anda dalam prosess verivikasi data']);
 	}
 
 	protected function expires() : Carbon

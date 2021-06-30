@@ -13,9 +13,35 @@
               <div class="menu_section">
                 <h3>Komoditas</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-leaf"></i>Tanaman <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-tree"></i>Komoditas Tanam <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/daftar-komoditas">Daftar Komoditas</a></li>
+                      <li><a href="/tanaman-index">Tanaman</a></li>
+                    </ul>
+                    </li>
+                </ul>
+              </div>
+              <div class="menu_section">
+                <h3>Penyakit Dan Hama</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-times-circle-o"></i>Hama<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/daftar-hama">Daftar Hama</a></li>
+                    </ul>
+                    </li>
+                    <li><a><i class="fa fa-times-circle-o"></i>Penyakit<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/daftar-penyakit">Daftar Penyakit</a></li>
+                    </ul>
+                    </li>
+                </ul>
+              </div>
+              <div class="menu_section">
+                <h3>Komoditas</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-leaf"></i>Harga<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/harga">Harga Komoditas</a></li>
                     </ul>
                     </li>
                 </ul>

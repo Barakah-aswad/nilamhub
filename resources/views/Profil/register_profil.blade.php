@@ -27,11 +27,11 @@
             	<div class="row">
             		<div class="col-md-12">
             			<div class="x_panel">
-            				<div class="alert alert-danger">
-                        <h4><i class="fa fa-warning"></i> Perhatian!</h4> Harap untuk menginput data diri anda yang sebenar-benarnya, demi kelancaran proses verifikasi dan sebagainya.<br>
-                        <a href="" class="alert-link">Apabila anda mengalami kendala klik link berikut untuk bantuan.</a> Memberikan informasi tidak benar akan dikenakan sanksi sesuai aturan hukum yang berlaku.
-
+            				@if(session('error'))
+                      <div class="alert alert-danger">
+                        <h4><i class="fa fa-warning"></i> Perhatian!</h4> {{session('error')}}
                       </div>
+                    @endif
             			</div>
             		</div>
             	</div>
@@ -44,7 +44,7 @@
                 <div class="x_panel">
                   <div class="x_content">
                     <br />
-                    <form class="form-horizontal form-label-left" action="/profil" method="POST">
+                    <form class="form-horizontal form-label-left" action="/profil-pengunjung" method="POST">
 
                     	{{ csrf_field()}}
 
@@ -79,11 +79,16 @@
                       <div class="form-group row">
                         <label class="control-label col-md-3 col-sm-3 col-xs-3">Alamat Lengkap</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                          <input type="text" name="alamat_provinsi" class="form-control @error('alamat_provinsi') is-invalid @enderror" value="{{old('alamat_provinsi')}}" placeholder="Cth: Desa:xxxx, Kec.xxx"><br>
+                          <select id="heard" name="wilayah" class="form-control @error('wilayah') is-invalid @enderror" required>
+                                <option>Wilayah</option>
+                                @foreach($wilayah as $wilayahs)
+                                <option value="{{$wilayahs->nama}}">{{$wilayahs->nama}}</option>
+                                @endforeach
+                          </select><br>
 
                           <input type="text" name="alamat_lengkap" class="form-control @error('alamat_lengkap') is-invalid @enderror" value="{{old('alamat_lengkap')}}" placeholder="Cth: Desa:xxxx, Kec.xxx">
 
-                          @error('nama_provinsi')
+                          @error('wilayah')
                           <span class="fa fa-home invalid-feedback left" role="alert">
                             {{$message}}
                           </span>

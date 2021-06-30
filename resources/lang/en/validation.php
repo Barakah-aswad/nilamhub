@@ -164,6 +164,13 @@ return [
         ],
         'no_telepon' => [
             'required' => 'Dibutuhkan nomor telepon'
+        ],
+        'ke_tanaman' =>[
+            'required' => 'Harap centang tanaman yang tertera',
+        ],
+        'tanaman_id' => [
+            'required' => 'Pilih jenis komoditas',
+            'unique'   => 'Komoditas ini telah terdaftar'
         ]
     ],
 

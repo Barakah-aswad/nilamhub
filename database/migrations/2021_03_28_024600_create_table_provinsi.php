@@ -20,6 +20,7 @@ class CreateTableProvinsi extends Migration
             $table->timestamps();
 
             $table->engine = 'InnoDB';
+            $table->unique('kode_post');
         });
     }
 

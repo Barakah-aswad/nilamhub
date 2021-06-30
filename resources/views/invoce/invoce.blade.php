@@ -11,7 +11,7 @@
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Portofolio<small>{{$verifikasi->userAktiva->first_name}}</small></h2>
+                    <h2>Portofolio<small>{{$verifikasi->first_name}}</small></h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -22,7 +22,7 @@
                         <div class="  invoice-header">
                           <h1>
                                           <i class="fa fa-file-pdf-o"></i> Portofolio.
-                                          <small class="pull-right">{{$verifikasi->created_at}}</small>
+                                          <small class="pull-right">{{$verifikasi->Aktivasi_akun->created_at}}</small>
                                       </h1>
                         </div>
                         <!-- /.col -->
@@ -43,22 +43,21 @@
                         <div class="col-sm-4 invoice-col">
                           Atas nama pemilik akun :
                           <address>
-                                          <strong>{{$verifikasi->userAktiva->first_name}}</strong>
-                                          <br>Alamat, {{$verifikasi->petaniAktiva->alamat_lengkap}}
-                                          <br>Kota, CA 94107
-                                          <br>Nomor Telepon: 1 (804) 123-9876
-                                          <br>Email: <strong style="color: blue">{{$verifikasi->userAktiva->email}}</strong>
+                                          <strong>{{$verifikasi->first_name}}</strong>
+                                          <br>Alamat, {{$verifikasi->profil->alamat_lengkap}}
+                                          <br>Provinsi: {{$verifikasi->profil->wilayah}}
+                                          <br>Nomor Telepon: {{$verifikasi->profil->no_telepon}}
+                                          <br>Email: <strong style="color: blue">{{$verifikasi->email}}</strong>
                                       </address>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-4 invoice-col">
                           <b>Nomor Aktifasi #{{$verifikasi->id}}</b>
                           <br>
-                          <b>ID User:</b> {{$verifikasi->user_id}}
+                          <b>ID User:</b> {{$verifikasi->Aktivasi_akun->user_id}}
                           <br>
-                          <b>Waktu Buat:</b> {{$verifikasi->created_at}}
+                          <b>Waktu Buat:</b> {{$verifikasi->Aktivasi_akun->created_at}}
                           <br>
-                          <b>ID Akun Petani:{{$verifikasi->petaniAktiva->id}}</b> 
                         </div>
                         <!-- /.col -->
                       </div>
@@ -67,7 +66,7 @@
                         <div>
                           <div class="x_content">
                             <strong style="color: black">
-                            Dengan benar bahwa pemilik saya sebagai pemilik akun atas nama {{$verifikasi->userAktiva->first_name}}, ID {{$verifikasi->userAktiva->id}}, telah melakukan pendaftaran sejak {{$verifikasi->userAktiva->created_at}}, maka dengan ini saya menyetujui atas aturan dan ketetapan yang berlaku serta dapat bertanggung jawab di kemudian hari sesuai ketentuan danperaturan hukum yang berlaku.<br>
+                            Dengan benar bahwa pemilik saya sebagai pemilik akun atas nama {{$verifikasi->first_name}}, ID {{$verifikasi->id}}, telah melakukan pendaftaran sejak {{$verifikasi->created_at}}, maka dengan ini saya menyetujui atas aturan dan ketetapan yang berlaku serta dapat bertanggung jawab di kemudian hari sesuai ketentuan danperaturan hukum yang berlaku.<br>
                           </strong>
                           </div>
                           
@@ -128,7 +127,7 @@
                           @if($verifikasi->verifed == 1)
                           
                           @elseif($verifikasi->verifed == 0)
-                          <form action="/aktifasi/{{$verifikasi->id}}" method="POST" id="update-form">
+                          <form action="/aktifasi/{{$verifikasi->Aktivasi_akun->id}}" method="POST" id="update-form">
 
                             
                             {{ method_field('PUT') }}

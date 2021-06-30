@@ -16,7 +16,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-map"></i> Lahan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="/registrasi-lahan">Registrasi Lahan</a></li>
+                      <li><a href="/registrasi_lahan">Registrasi Lahan</a></li>
                       <li><a href="/daftar-lahan">Daftar lahan</a></li>
                     </ul>
                   </li>

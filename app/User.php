@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use App\Petani;
 use App\Aktivasi_akun;
 use App\Profil;
+use App\Komoditas;
+use App\Hama;
 
 class User extends EloquentUser
 {
@@ -55,11 +57,18 @@ class User extends EloquentUser
     }
 
     public function Aktivasi_akun(){
-        return $this->hasMany(Aktivasi_akun::class);
+        return $this->hasOne(Aktivasi_akun::class);
     }
 
     public function profil()
     {
         return $this->hasOne(Profil::class);
+    }
+
+    public function komoditas(){
+        return $this->hasMany(Komoditas::class,'post_by');
+    }
+    public function hama(){
+        return $this->hasMany(Hama::class,'post_by');
     }
 }

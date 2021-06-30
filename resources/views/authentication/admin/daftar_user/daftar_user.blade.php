@@ -77,10 +77,8 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Nama lengkap</th>
-                          <th>Alamat Lengkap</th>
-                          <th>Umur</th>
-                          <th>Tempat Lahir</th>
+                          <th>ID Petani</th>
+                          <th>Rating</th>
                           <th>Dibuat</th>
                           <th colspan="2">Aksi</th>
                         </tr>
@@ -90,11 +88,8 @@
                         @foreach($petani as $petanis)
                         <tr>
                           <th scope="row">{{$users->id}}</th>
-                          <td>{{$petanis->first_name}} </td>
-                          <td>{{$petanis->location}}</td>
-                          <td>{{$petanis->umur}}</td>
-                          <td>{{$petanis->tmp_lahir}}</td>
-                          <td>{{$petanis->created_at}}</td>
+                          <td>{{$petanis->user_id}} </td>
+                          <td>{{$petanis->rating}}</td>
                           <td><a href="">Edit</a></td>
                           <td><a href="">Delete</a></td>
                         </tr>

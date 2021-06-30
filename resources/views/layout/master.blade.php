@@ -10,6 +10,7 @@
 
     <title>@yield('title')</title>
 
+    <!-- <link href="{{URL::asset('admin/vendors/bootstrap3-editable/css/bootstrap-editable.css')}}" rel="stylesheet"> -->
     <!-- Bootstrap -->
     <link href="{{URL::asset('admin/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -97,7 +98,8 @@
         <!-- /footer content -->
       </div>
     </div>
-
+    <!-- <script src="{{URL::asset('admin/vendors/bootstrap3-editable/js/bootstrap-editable.js')}}"></script>
+    <script src="{{URL::asset('admin/vendors/bootstrap3-editable/js/bootstrap-editable.min.js')}}"></script> -->
     <!-- jQuery -->
     <script src="{{URL::asset('admin/vendors/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap -->
@@ -140,4 +142,60 @@
     <script src="{{URL::asset('admin/build/js/custom.min.js')}}"></script>
     
   </body>
+
+<script>
+    function goBack() {
+      window.history.back();
+    }
+
+    function goForward() {
+      window.history.forward();
+    }
+
+
+    $(document).on('click','create-modal', function() {
+        $('#create').modal('show');
+        $('#form-horisontal').show();
+        $('#modal-title').text('Add Post');
+    });
+
+    $('#simpan').click(function() {
+
+        let _token  = $('meta[name="csrf-token"]').attr('content');
+
+
+        //$(this).html('Sending ...');
+
+        $.ajax({
+
+            type : 'POST',
+            url  : '/tambahpenyakit',
+            data : {
+                   '_token'         : $('input[name=_token]').val(),
+                   'jenis_penyakit' : $('input[name=jenis_penyakit]').val(),
+                   'ke_tanaman'     : $('input[name=ke_tanaman').val(),
+                   'pestisida'      : $('input[name=pestisida]').val(),
+                   'penanganan'     : $('input[name=penanganan]').val(),
+            },
+            success: function(data){
+                //consol.log(data)
+                 $('#table').append(`
+                        <tr>
+                          <th scope="row">`+ data.id + `</th>
+                          <td>` + data.jenis_penyakit + `</a></td>
+                          
+                          <td>` + data.pestisida + `</td>
+                          <td>` + data.ShortContent +`</td>
+                          <td><button type="button" class="btn btn-primary fa fa-eye" data-toggle="modal" data-target="#lihat">
+                          </button>
+
+                          <button href="" type="button" class="btn btn-success fa fa-pencil-square-o" data-toggle="modal" data-target="#ubah">
+                           </td>
+                        </tr>
+                            `);
+                        }
+                    });
+
+                });
+</script>
 </html>

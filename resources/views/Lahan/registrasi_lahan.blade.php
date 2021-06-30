@@ -44,9 +44,9 @@
                 <div class="x_panel">
                   <div class="x_content">
                     <br />
-                    <form class="form-horizontal form-label-left" action="/registrasi-lahan" method="POST">
+                    <form class="form-horizontal form-label-left" action="" method="POST">
 
-                    	{{ csrf_field()}}
+                    	{{ csrf_field() }}
 
                     	 <div class="form-group row">
                         <label class="control-label col-md-3 col-sm-3 col-xs-3">Total Luas</label>

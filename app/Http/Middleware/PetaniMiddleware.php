@@ -17,9 +17,13 @@ class PetaniMiddleware
      */
     public function handle($request, Closure $next)
     {
+        
         if (Sentinel::check() && Sentinel::getUser()->roles()->first()->slug == 'petani') {
+            
+            $user = Sentinel::getUser()->id;
+            $aktiva = Aktivasi_akun::where('user_id',$user)->first();
 
-            if (Aktivasi_akun::select('verifed')->where('verifed','=', true)->find(Sentinel::getUser()->id)) {
+            if ($aktiva->verifed == true) {
                 return $next($request);
             }else{
                 Sentinel::logout(null,true);

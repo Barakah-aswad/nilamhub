@@ -21,9 +21,7 @@ class CreateTableHarga extends Migration
             $table->integer('harga_hulu');
             $table->integer('harga_hilir');
             //$table->bigInteger('daerah_id');
-            $table->foreignId('provinsi_id')->constrained()
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+            $table->string('wilayah');
             $table->timestamps();
             
             $table->engine = 'InnoDB';

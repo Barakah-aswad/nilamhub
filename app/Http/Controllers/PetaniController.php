@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Petani;
 use App\Aktivasi_akun;
 use Sentinel;
+use App\User;
 use App\Lahan;
 use DB;
 
@@ -21,16 +22,16 @@ class PetaniController extends Controller
         return view('Lahan.registrasi_lahan');
     }
 
-    public function getPetaniID()
+    private function getUserId()
     {
-        $id = Sentinel::getUser()->id;
-        $petani = petani::findOrFail($id);
-        return $petani->id;
+        $id = User::findOrFail(Sentinel::getUser()->id);
+        return $id;
     }
 
     public function simpanLahan(Request $request)
     {
         //return $request->all();
+        
 
         $lat = 1000;
         $log = 2000;
@@ -45,8 +46,8 @@ class PetaniController extends Controller
             'jrk_lahan'      => 'required|integer'
         ]);
 
-        $lahan = new lahan;
-        $lahan->petani_id      = $this->getPetaniID();
+        $lahan                 = new lahan;
+        $lahan->petani_id      = $this->getUserId()->petani->id;
         $lahan->total_luas     = $request->total_luas;
         $lahan->alamat_lahan   = $request->alamat_lahan;
         $lahan->no_sertifikat  = $request->no_sertifikat;
@@ -56,13 +57,15 @@ class PetaniController extends Controller
         $lahan->jrk_lahan      = $request->jrk_lahan;
         $lahan->lat            = $lat;
         $lahan->log            = $log;
+
         //return $lahan;
         $lahan->save();
         return redirect('/daftar-lahan');
     }
     public function daftarLahan()
     {
-        $lahan = lahan::where('petani_id','=',$this->getPetaniID())->get();
+        $lahan = Lahan::where('petani_id','=', $this->getUserId()->petani->id)->get();
+        //return $lahan;
         return view('Lahan.daftar_lahan',compact('lahan'));
     }
 

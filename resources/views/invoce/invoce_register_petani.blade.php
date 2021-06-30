@@ -10,11 +10,11 @@
             <div class="row">
                 <div class="col-md-12">
                   <div class="x_panel">
-                    <div class="alert alert-danger">
-                        <h4><i class="fa fa-warning"></i> Perhatian!</h4> Harap untuk menginput data diri anda yang sebenar-benarnya, demi kelancaran proses verifikasi dan sebagainya.<br>
-                        <a href="" class="alert-link">Apabila anda mengalami kendala klik link berikut untuk bantuan.</a> Memberikan informasi tidak benar akan dikenakan sanksi sesuai aturan hukum yang berlaku.
-
+                    @if(session('error'))
+                      <div class="alert alert-danger">
+                        <h4><i class="fa fa-warning"></i> Perhatian!</h4> Anda di alihkan untuk mengisi data profil terlebih dahulu. Harap untuk menginput data diri anda yang sebenar-benarnya, demi kelancaran proses verifikasi dan sebagainya.<a href="" class="alert-link">Apabila anda mengalami kendala klik link berikut untuk bantuan.</a> Memberikan informasi tidak benar akan dikenakan sanksi sesuai aturan hukum yang berlaku.
                       </div>
+                    @endif
                   </div>
                 </div>
               </div>
@@ -137,14 +137,14 @@
                       <!-- this row will not appear when printing -->
                       <div class="row no-print">
                         <div class=" ">
-                          <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
+                          <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Cetak Portofolio </button>
 
                          
-                          <form action="/daftar_petani/{{$user->id}}" method="POST" id="daftar">
+                          <form action="/simpan_daftar_petani" method="POST" id="daftar">
 
                             {{ csrf_field() }}
 
-                            <button type="submit" class="btn btn-success pull-right"><i class="fa fa-send-o"></i> Print</button>
+                            <button type="submit" class="btn btn-success pull-left"><i class="fa fa-send-o"></i> Daftar</button>
                           </form>
                          
                         </div>

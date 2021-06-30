@@ -58,13 +58,13 @@
                       @if($users->verifed == 1)
                       <tbody>
                         <tr>
-                          <th scope="row">{{$users->id}}</th>
-                          <td>{{$users->first_name}}</td>
-                          <td>{{$users->nomor_ktp}}</td>
-                          <td>{{$users->alamat_lengkap}}</td>
+                          <th scope="row">{{$users->userAktiva->id}}</th>
+                          <td>{{$users->userAktiva->first_name}}</td>
+                          <td>{{$users->profilAktiva->nomor_ktp}}</td>
+                          <td>{{$users->profilAktiva->alamat_lengkap}}</td>
                           <td><span class="badge badge-success">verifed</span></td>
                           <td>{{$users->waktu_verifikasi}}</td>
-                          <td><a href="/aktifasi/{{$users->id}}">DETAIL</a></td>
+                          <td><a href="/aktifasi/{{$users->userAktiva->id}}">DETAIL</a></td>
                         </tr>
                       </tbody>
                       @endif
@@ -103,13 +103,13 @@
                         @if($users->verifed == 0)
                       <tbody>
                         <tr>
-                          <th scope="row">{{$users->id}}</th>
-                          <td>{{$users->first_name}}</td>
-                          <td>{{$users->nomor_ktp}}</td>
-                          <td>{{$users->alamat_lengkap}}</td>
+                          <th scope="row">{{$users->userAktiva->id}}</th>
+                          <td>{{$users->userAktiva->first_name}}</td>
+                          <td>{{$users->profilAktiva->nomor_ktp}}</td>
+                          <td>{{$users->profilAktiva->alamat_lengkap}}</td>
                           <td><span class="badge badge-danger">unverifed</span></td>
-                          <td>{{$users->created_at}}</td>
-                          <td><a href="/aktifasi/{{$users->id}}">DETAIL</a></td>
+                          <td>{{$users->waktu_verifikasi}}</td>
+                          <td><a href="/aktifasi/{{$users->userAktiva->id}}">DETAIL</a></td>
                         </tr>
                       </tbody>
                       @endif

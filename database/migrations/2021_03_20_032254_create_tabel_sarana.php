@@ -14,9 +14,10 @@ class CreateTabelSarana extends Migration
     public function up()
     {
         Schema::create('saranas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('petani_id')->unsigned();
-            $table->foreign('petani_id')->references('id')->on('petanis')
+            $table->id();
+            //$table->bigInteger('petani_id')->unsigned();
+            $table->foreignId('petani_id')
+                  ->constrained()
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
             $table->bigInteger('sarana')->unsigned();

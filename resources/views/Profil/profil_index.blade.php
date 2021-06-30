@@ -49,7 +49,7 @@
                       <div class="profile_img">
                         <div id="crop-avatar">
                           <!-- Current avatar -->
-                          <img class="img-responsive avatar-view" src="images/picture.jpg" alt="Avatar" title="Change the avatar">
+                          <img class="img-responsive avatar-view" src="user_default.jpg" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
                       <h3>{{$user->first_name}}</h3>
@@ -58,7 +58,7 @@
                         <li><i class="fa fa-birthday-cake user-profile-icon"></i> {{$user->profil->tmp_lahir}}, {{$user->profil->tgl_lahir}}
                         </li>
 
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> {{$user->profil->alamat_lengkap}}, {{$user->profil->alamat_provinsi}}, Indonesia
+                        <li><i class="fa fa-map-marker user-profile-icon"></i> {{$user->profil->alamat_lengkap}}, {{$user->profil->wilayah}} | Indonesia
                         </li>
 
                         <li>
@@ -84,7 +84,19 @@
                         </li>
                       </ul>
 
-                      <a class="btn btn-success" href="/profil/{{$user->id}}/edit"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                      @if(Sentinel::getUser()->roles()->first()->slug == 'petani')
+
+                          <a class="btn btn-success" href="/profil_edit_petani/{{$user->profil->id}}/edit"><i class="fa fa-edit m-right-xs"></i>Edit Profile Petani</a>
+
+                      @elseif(Sentinel::getUser()->roles()->first()->slug == 'pengunjung')
+
+                          <a class="btn btn-success" href="/profil_edit_pengunjung/{{$user->profil->id}}/edit"><i class="fa fa-edit m-right-xs"></i>Edit Profile Pengunjung</a>
+
+                      @elseif(Sentinel::getUser()->roles()->first()->slug == 'admin')
+
+                          <a class="btn btn-success" href="/profil_edit_admin/{{$user->profil->id}}/edit"><i class="fa fa-edit m-right-xs"></i>Edit Profile Admin</a>
+
+                      @endif
                       <br />
 
                       <!-- start skills -->

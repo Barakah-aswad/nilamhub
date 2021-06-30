@@ -11,11 +11,11 @@
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     @if(Sentinel::getUser()->roles()->first()->slug == 'admin')
-                    <a class="dropdown-item"  href="/profil-admin"> Profile</a>
+                    <a class="dropdown-item"  href="/profil_admin"> Profile</a>
                     @elseif(Sentinel::getUser()->roles()->first()->slug == 'pengunjung')
-                    <a class="dropdown-item"  href="/profil-pengunjung"> Profile</a>
+                    <a class="dropdown-item"  href="/profil_pengunjung"> Profile</a>
                     @elseif(Sentinel::getUser()->roles()->first()->slug == 'petani')
-                    <a class="dropdown-item"  href="/profil-petani"> Profile</a>
+                    <a class="dropdown-item"  href="/profil_petani"> Profile</a>
                     @endif
 
                       <a class="dropdown-item"  href="javascript:;">
